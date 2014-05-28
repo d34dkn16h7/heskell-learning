@@ -8,15 +8,18 @@ main = do
 
 rm xs tRm = [x | x <- xs, x /= tRm ] 
 
-mkk' str brk = mkk str brk []  []
+split' str brk = split str brk []  []
 
-mkk :: [Char] -> Char -> [Char] -> [[Char]] -> [[Char]]
-mkk [] br word list = list ++ [word]
-mkk (x:xs) br word list = if x == br
-					 then
-					 	mkk xs br "" (list ++ [word])
-					 else
-					 	mkk xs br (word ++ [x]) list
+split :: [Char] -> Char -> [Char] -> [[Char]] -> [[Char]]
+split [] splitter word list = list ++ [word]
+split (x:xs) splitter word list | x == splitter = split xs splitter "" (list ++ [word])
+								 | otherwise    = split xs splitter (word ++ [x]) list
+
+
+-- ["this is a string"]
+split'f :: [[Char]] -> Char -> [[Char]]
+split'f [] splitter = []
+split'f (x:xs) splitter = split' x splitter ++ split'f xs splitter
 
 getFile :: String -> IO String
 getFile ask = do
