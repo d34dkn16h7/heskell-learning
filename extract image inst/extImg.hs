@@ -1,6 +1,6 @@
 module Main where
 
-import qualified System.IO.UTF8 as IO
+import qualified System.IO as IO
 
 main = do
 	htmlFile <- getFile "Enter a HTML File -> "
