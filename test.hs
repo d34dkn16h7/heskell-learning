@@ -26,3 +26,8 @@ dox x = x + 1
 doy y = y * 2
 
 fBind b = (dox . doy) b
+
+get x = tf * file
+	where
+		file = x * 12
+		tf   = x + 1
