@@ -31,3 +31,7 @@ get x = tf * file
 	where
 		file = x * 12
 		tf   = x + 1
+
+sumall :: [Int] -> Int
+sumall [] = 0
+sumall (x:xs) = x + sumall xs
