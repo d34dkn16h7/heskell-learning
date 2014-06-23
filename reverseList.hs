@@ -1,3 +1,5 @@
+main = print $ rev "Hi there!"
+
 rev :: [a] -> [a]
 rev [] = []
 rev (x:xs) = (rev xs) ++ [x]
