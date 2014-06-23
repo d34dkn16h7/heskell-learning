@@ -1,2 +1,5 @@
-f[]=[]
-f(x:xs)=x: [y | y <- f xs, x/=y]
+main = print $ rDup "removed duplicates _with spaces!!"
+
+rDup :: Eq a => [a] -> [a]
+rDup [] = []
+rDup (x:xs) = x : [y | y <- rDup xs, x /= y]
