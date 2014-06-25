@@ -1,12 +1,3 @@
-nodeMin = 0
-nodeMax = 15
+data Tree a = Tree a | Empty | Branch (Tree a) (Tree a) deriving (Show)
 
-main = do
-	val <- getLine
-	print (addNd (read val))
-	main
-
-addNd :: Int -> Int
-addNd x | x > (nodeMax - 1) = addNd (x - nodeMax)
-		| x < nodeMin = addNd (x + nodeMax)
-		| otherwise = x
+tree = Tree (Branch Empty Empty)
